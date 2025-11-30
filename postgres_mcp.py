@@ -40,7 +40,7 @@ def format_text(text):
 
 def query_db(query):
     if not query.strip().upper().startswith("SELECT"):
-        return "❌ Error: Only SELECT allowed."
+        return "Error: Only SELECT allowed."
 
     try:
         conn = get_conn()
@@ -55,7 +55,7 @@ def query_db(query):
         return json.dumps(rows, indent=2, default=str)
 
     except Exception as e:
-        return f"❌ DB Error: {e}"
+        return f"DB Error: {e}"
 
 
 def list_tables():
@@ -77,7 +77,7 @@ def list_tables():
         return "\n".join(f"- {row[0]}" for row in rows)
 
     except Exception as e:
-        return f"❌ DB Error: {e}"
+        return f"DB Error: {e}"
 
 
 def describe_table(name):
@@ -99,7 +99,7 @@ def describe_table(name):
         return json.dumps(rows, indent=2)
 
     except Exception as e:
-        return f"❌ DB Error: {e}"
+        return f"DB Error: {e}"
 
 
 # ------------------------- MCP HANDLING ----------------------------
